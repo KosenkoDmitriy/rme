@@ -1,0 +1,30 @@
+.ma-description, .ma-viewer {
+  border: 1px solid grey;
+  margin: 10px 0;
+}
+
+.ma-viewer {
+  width: 100%;
+}
+
+.ma-description {
+  padding: 15px;
+}
+
+.ma-product {
+  padding: 5px;
+  text-align: center;
+
+  img, button {
+    display: block;
+    margin: auto;
+
+    margin-top:    10px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 85%;
+  }
+}
+

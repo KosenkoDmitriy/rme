@@ -1,0 +1,13 @@
+.ma-viewer
+  = product_image(products[0], itemprop: 'image')
+
+.ma-description= product_details(products[0])
+
+.ma-products.row
+  - products.each do |product|
+    span.col-sm-3.ma-product
+      = small_image(product, itemprop: "image")
+      = truncate(product.name, length: 25)
+      button.ma-select Select
+      button.ma-like Like
+
