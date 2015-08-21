@@ -144,3 +144,19 @@ table {
 .rsidebar_product_selected {
   padding-top: 20px;
 }
+
+#spree-header {
+  margin-top: 100px;
+  background-color: white;
+}
+
+#product-variants {
+  overflow-y: scroll;
+  height: 200px;
+}
+
+.table tbody>tr>td.vert-align
+{
+  vertical-align: middle;
+}
+
