@@ -20,7 +20,7 @@ class HomeController < ApplicationController
     contractall = Contractor.joins('LEFT OUTER JOIN Companyimgs ON Companyimgs.name = Contractors.name').
                   select("Contractors.*, Companyimgs.logo, Companyimgs.certi1, Companyimgs.certi2, Companyimgs.carousel")
     contractall.each do |con|
-      if calc_distance(splcusadd, split_data(con.address) ) <= con.appro
+      if calc_distance(splcusadd, split_data(con.add) ) <= con.appro
         @JobImgs[con.id] = con.carousel.split(",")       
         @Contractors << con;
       end
@@ -81,6 +81,31 @@ class HomeController < ApplicationController
   def split_data(data)
     spldata = data.split(",")
     return spldata
+  end
+  def summary
+    jobImgs = []
+    id = -1
+    address = ''
+    contractors = Contractor.joins('LEFT OUTER JOIN Companyimgs ON Companyimgs.name = Contractors.name').
+                  select("Contractors.*, Companyimgs.logo, Companyimgs.certi1, Companyimgs.certi2, Companyimgs.carousel").
+                  where("Contractors.name = ?", params[:name] ).
+                  limit(1)
+    contractors.each do |con|
+      @contractor = con;
+      jobImgs[con.id] = con.carousel.split(",") 
+      address = con.add.split(",")  
+      id = con.id
+    end
+
+    if @contractor.price
+      @Deposit = @contractor.price * 0.1
+    else
+      @Deposit = 0
+    end
+    @ProductImg = jobImgs[id][0]
+    @Lat = address[0]
+    @Lon = address[1] 
+    @Date = params[:date]
   end
 
   def login_portal
