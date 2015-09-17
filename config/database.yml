@@ -21,9 +21,11 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: postgresql
-  host:     localhost
-  encoding: unicode
+  <<: *default
+  database: db/production.sqlite3
+  #adapter: postgresql
+  #host:     localhost
+  #encoding: unicode
   # database: myfundraiser_development
   # username: postgres
   # password: postgres
