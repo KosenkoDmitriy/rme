@@ -40,9 +40,12 @@ function update_item_to_max_height(selector, default_height) {
 }
 
 function update_rsidebar_heights() {
-    var heightOfItemsILike = $("#lsidebar").height() - $(".search_by_sku").height() -
-        $(".rsidebar_products_i_like .panel-heading").height() - $(".rsidebar_product_selected").height() - 80;
+    var heightOfItemsILike = $(".rsidebar_product_selected").height();
+    //    $("#lsidebar").height() - $(".search_by_sku").height() -
+    //    $(".rsidebar_products_i_like .panel-heading").height() - $(".rsidebar_product_selected").height() - 80;
+    //if (heightOfItemsILike < 0 ) heightOfItemsILike = 200;
     $(".products_liked").css('height', heightOfItemsILike);
+    $("#products").css('height', heightOfItemsILike*2);
 }
 
 

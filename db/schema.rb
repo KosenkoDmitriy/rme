@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20150821160230) do
     t.string   "description"
     t.date     "servicedate"
     t.integer  "appro"
-    t.float    "price"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
